@@ -23,66 +23,48 @@
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <script type="text/javascript">
-    //Codifique su solución aquí.; 
-    import Tarjeta from 'react';
-    import cardsData from 'react'; 
+  <script type="text/jsx">
 
-const Tarjeta = ({imageUrl, title, text}) => {
-return (
+     const Card = ({ imageUrl, title, text }) => {
+
+                return (
+                    <div  className= "col-lg-3">
+                        <div className="card">
+                            <img src={imageUrl} alt={title} className="card-img-top" />
+                            <div className="card-body">
+                                <h5 className="card-title">{title}</h5>
+                                <p className="card-text">{text}</p>
+                            </div>
+                            </div>
+
+                    </div>
+                  
+                );
+            }
 
 
- <div class= "col-lg-3">
-        <div class= "card">
-            <img src=''class="card-img-top"/>
-            <div class="card-body">
-                <h5 class= "card-title"> Este es el titulo</h5>
-                <p class= "card-text">Este es un texto descriptivo.</p>
-                </div>
-        </div>
-        </div>
-)
-
-}
-
-export default Tarjeta;
-
-    <div class= "col-lg-3">
-        <div class= "card">
-            <img src=''class="card-img-top"/>
-            <div class="card-body">
-                <h5 class= "card-title"> Este es el titulo</h5>
-                <p class= "card-text">Este es un texto descriptivo.</p>
-                </div>
-        </div>
-        </div>
 function Homepage() {
 
     var cardsData = [
-        ['https://acortar.link/ZG0T20', 'Montañas', 'Estas son montañas nevadas en alguna parte de USA.'],
-        ['https://acortar.link/ydMwAQ', 'Lago', 'Este es un hermoso lago que refleja un atardecer.'],
-        ['https://acortar.link/Tl4C4D', 'Abeja', 'Esta es una hermosa imagen de una abeja cerca de una flor.'],
+        ['https://acortar.link/Tl4C4D', 'Montañas', 'Estas son montañas nevadas en alguna parte de USA.'],
+        ['https://acortar.link/Tl4C4D', 'Lago', 'Este es un hermoso lago que refleja un atardecer.'],
+        ['https://acortar.link/ErTscd', 'Abeja', 'Esta es una hermosa imagen de una abeja cerca de una flor.'],
         ['https://acortar.link/ErTscd', 'Arboles', 'Esta es una imponente imagen de un volcán en erupción.']]
   
-    return (
-      <div>
-        {this.cardsData.map(data => (
-          <Card title={data[0]} content={data[1]} />
-        ))}
-      </div>
-    );
+        return (
+            <div className="row m-4">
+                {cardsData.map((data) => {
+                    return (
+                        <Card imageUrl={data[0]} title={data[1]} text={data[2]} />
+                    );
+                })}
+            </div>
+        );
 };
 
-  var APP = () =>{
-            return(
-            <>
-             <Tarjeta/>
-            
-            </>
-            );
-        }
+ 
 
-         ReactDOM.render(<APP />, app);
+         ReactDOM.render(<Homepage/>, app);
 
   </script>
 
